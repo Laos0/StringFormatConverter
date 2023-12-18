@@ -1,6 +1,12 @@
 
 import parse from 'json2csv';
 import * as flat from 'flat';
+/**
+ * Convert JSON data to CSV format.
+ * @param {Object} jsonData - The JSON data object to convert to CSV.
+ * @returns {string} The CSV string generated from the JSON data.
+ */
+
 
 const jsonToCsv = async (jsonData) => {
     try{
