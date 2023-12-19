@@ -1,7 +1,9 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
 import { stringFormatConverter } from '../index.js';
-
+/**
+ * Purpose of this test is to ensure that all converters are working properly as intended
+ */
 
 // reading the json file async
 const readStringFile = async (stringDataFile) => {
