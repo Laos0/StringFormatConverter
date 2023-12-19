@@ -1,12 +1,63 @@
 {
-    "name": "John Doe",
-    "age": 30,
-    "email": "johndoe@example.com",
-    "isStudent": false,
-    "address": {
-      "street": "123 Main St",
-      "city": "Anytown",
-      "country": "Country"
+  "company": "ABC Inc.",
+  "departments": [
+    {
+      "name": "Engineering",
+      "location": "Building A",
+      "employees": [
+        {
+          "id": "E001",
+          "name": "John Doe",
+          "position": "Software Engineer",
+          "projects": [
+            {
+              "id": "P001",
+              "name": "Project X",
+              "status": "In Progress"
+            },
+            {
+              "id": "P002",
+              "name": "Project Y",
+              "status": "Completed"
+            }
+          ]
+        },
+        {
+          "id": "E002",
+          "name": "Jane Smith",
+          "position": "UX Designer",
+          "projects": [
+            {
+              "id": "P001",
+              "name": "Project X",
+              "status": "In Progress"
+            },
+            {
+              "id": "P003",
+              "name": "Project Z",
+              "status": "Pending"
+            }
+          ]
+        }
+      ]
     },
-    "hobbies": ["reading", "running", "cooking"]
+    {
+      "name": "Marketing",
+      "location": "Building B",
+      "employees": [
+        {
+          "id": "E003",
+          "name": "Alice Johnson",
+          "position": "Marketing Manager",
+          "projects": [
+            {
+              "id": "P004",
+              "name": "Campaign A",
+              "status": "Completed"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

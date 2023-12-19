@@ -16,4 +16,4 @@ const csvToJson = async (csvData) => {
     }
 }
 
-export {csvToJson as ctj};
+export {csvToJson};

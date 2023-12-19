@@ -27,4 +27,4 @@ const jsonToCsv = async (jsonData) => {
 };
 
 
-export {jsonToCsv as jtc};
+export {jsonToCsv};

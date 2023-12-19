@@ -6,7 +6,7 @@ import { parseString } from 'xml2js';
  * @returns {Promise<object>} - A Promise that resolves with the JSON object converted from XML.
  * @throws {Error} - Throws an error if the XML parsing fails.
  */
-const xtj = (xmlString) => {
+const xmlToJson = (xmlString) => {
     return new Promise((resolve, reject) => {
         parseString(xmlString, (err, result) => {
             if (err) {
@@ -18,4 +18,4 @@ const xtj = (xmlString) => {
     });
 };
 
-export {xtj};
+export {xmlToJson};

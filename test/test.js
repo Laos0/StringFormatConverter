@@ -1,9 +1,6 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
-import { jtc } from '../stringFormatConverter/jsonToCsv.js';
-import { ctj } from '../stringFormatConverter/csvToJson.js';
-import { jtx } from '../stringFormatConverter/jsonToXml.js';
-import { xtj } from '../stringFormatConverter/xmlToJson.js';
+import { converter } from '../stringFormatConverter/index.js';
 
 
 // reading the json file async
@@ -30,7 +27,7 @@ const jsonToCsv = async (stringDataFile) => {
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
         const jsonData = JSON.parse(data);
-        const csv = await jtc(jsonData);
+        const csv = await converter.jsonToCsv(jsonData);
 
         console.log(csv);
     }catch(err){
@@ -45,7 +42,7 @@ const csvToJson = async (stringDataFile) => {
         const stringDataPath = path.join(currentDir, '..', 'stringData', stringDataFile);
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
-        const json = await ctj(data);
+        const json = await converter.csvToJson(data);
 
         console.log(json);
     }catch(err){
@@ -61,7 +58,7 @@ const jsonToXml = async (stringDataFile) =>{
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
         const jsonData = JSON.parse(data);
-        const xml = jtx(jsonData);
+        const xml = converter.jsonToXml(jsonData);
 
         console.log(xml);
     }catch(err){
@@ -77,7 +74,7 @@ const xmlToJson = async (stringDataFile) =>{
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
         
-        const jsonData = await xtj(data);
+        const jsonData = await converter.xmlToJson(data);
         const jsonString = JSON.stringify(jsonData, null, 2);
         console.log(jsonString);
     }catch(err){
@@ -92,5 +89,5 @@ const xmlToJson = async (stringDataFile) =>{
 /** enable to needs to test converter */
 // jsonToCsv('flatJsonTestData.json');
 // csvToJson('csvTestData.csv');
-// jsonToXml('jsonTestData.json');
-xmlToJson('xmlTestData.xml');
+ jsonToXml('jsonTestData.json');
+// xmlToJson('xmlTestData.xml');

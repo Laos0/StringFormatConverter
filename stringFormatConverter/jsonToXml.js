@@ -37,10 +37,10 @@ const buildXML = (jsonObj, parent) => {
  * @param {object} jsonObject - The JSON object to convert.
  * @returns {string} - The XML string representation of the JSON object.
  */
-const jtx = (jsonObject) => {
+const jsonToXml = (jsonObject) => {
     const root = xmlbuilder.create('root');
     buildXML(jsonObject, root);
     return root.end({ pretty: true });
 };
 
-export { jtx };
+export { jsonToXml };
