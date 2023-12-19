@@ -25,7 +25,7 @@ const csvData = `Name, Age, Country
 John Doe, 30, USA
 Jane Smith, 25, Canada`;
 
-const jsonData = await converter.csvToJson(csvData);
+const jsonData = await stringFormatConverter.csvToJson(csvData);
 console.log(jsonData);
 ```
 
