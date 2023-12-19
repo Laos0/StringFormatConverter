@@ -87,7 +87,7 @@ const xmlToJson = async (stringDataFile) =>{
 //readStringFile('jsonTestData.json');
 
 /** enable to needs to test converter */
-// jsonToCsv('flatJsonTestData.json');
+ jsonToCsv('jsonTestData.json');
 // csvToJson('csvTestData.csv');
- jsonToXml('jsonTestData.json');
+// jsonToXml('jsonTestData.json');
 // xmlToJson('xmlTestData.xml');

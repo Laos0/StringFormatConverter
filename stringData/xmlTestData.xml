@@ -1,20 +1,55 @@
-<library>
-  <book>
-    <title>The Great Gatsby</title>
-    <author>F. Scott Fitzgerald</author>
-    <genre>Fiction</genre>
-    <year>1925</year>
-  </book>
-  <book>
-    <title>To Kill a Mockingbird</title>
-    <author>Harper Lee</author>
-    <genre>Novel</genre>
-    <year>1960</year>
-  </book>
-  <book>
-    <title>1984</title>
-    <author>George Orwell</author>
-    <genre>Dystopian</genre>
-    <year>1949</year>
-  </book>
-</library>
+<company>
+  <name>ABC Inc.</name>
+  <departments>
+    <department>
+      <name>Engineering</name>
+      <location>Building A</location>
+      <employees>
+        <employee id="E001">
+          <name>John Doe</name>
+          <position>Software Engineer</position>
+          <projects>
+            <project id="P001">
+              <name>Project X</name>
+              <status>In Progress</status>
+            </project>
+            <project id="P002">
+              <name>Project Y</name>
+              <status>Completed</status>
+            </project>
+          </projects>
+        </employee>
+        <employee id="E002">
+          <name>Jane Smith</name>
+          <position>UX Designer</position>
+          <projects>
+            <project id="P001">
+              <name>Project X</name>
+              <status>In Progress</status>
+            </project>
+            <project id="P003">
+              <name>Project Z</name>
+              <status>Pending</status>
+            </project>
+          </projects>
+        </employee>
+      </employees>
+    </department>
+    <department>
+      <name>Marketing</name>
+      <location>Building B</location>
+      <employees>
+        <employee id="E003">
+          <name>Alice Johnson</name>
+          <position>Marketing Manager</position>
+          <projects>
+            <project id="P004">
+              <name>Campaign A</name>
+              <status>Completed</status>
+            </project>
+          </projects>
+        </employee>
+      </employees>
+    </department>
+  </departments>
+</company>
