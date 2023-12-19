@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
-import { converter } from '../stringFormatConverter/index.js';
+import { converter } from '../index.js';
 
 
 // reading the json file async
