@@ -19,32 +19,32 @@ npm install stringformatconverter
 ## Usage
 ### CSV to JSON
 ```javascript
-import { ctj } from 'stringformatconverter';
+import { stringFormatConverter } from 'stringformatconverter';
 
 const csvData = `Name, Age, Country
 John Doe, 30, USA
 Jane Smith, 25, Canada`;
 
-const jsonData = await ctj(csvData);
+const jsonData = await converter.csvToJson(csvData);
 console.log(jsonData);
 ```
 
 ### JSON to CSV
 ```javascript
-import { jtc } from 'stringformatconverter';
+import { stringFormatConverter } from 'stringformatconverter';
 
 const jsonData = [
   { Name: 'John Doe', Age: 30, Country: 'USA' },
   { Name: 'Jane Smith', Age: 25, Country: 'Canada' }
 ];
 
-const csvData = await jtc(jsonData);
+const csvData = await stringFormatConverter.jsonToCsv(jsonData);
 console.log(csvData);
 ```
 
 ### JSON to XML
 ```javascript
-import { jtx } from 'stringformatconverter';
+import { stringFormatConverter } from 'stringformatconverter';
 
 const jsonData = {
   users: [
@@ -53,13 +53,13 @@ const jsonData = {
   ]
 };
 
-const xmlData = jtx(jsonData);
+const xmlData = stringFormatConverter.jsonToXml(jsonData);
 console.log(xmlData);
 ```
 
 ### XML to JSON
 ```javascript
-import { xtj } from 'stringformatconverter';
+import { stringFormatConverter } from 'stringformatconverter';
 
 const xmlData = `
   <users>
@@ -75,7 +75,7 @@ const xmlData = `
     </user>
   </users>`;
 
-const jsonData = xtj(xmlData);
+const jsonData = stringFormatConverter.xmlToJson(xmlData);
 console.log(jsonData);
 ```
 
