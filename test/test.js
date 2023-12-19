@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
-import { converter } from '../index.js';
+import { stringFormatConverter } from '../index.js';
 
 
 // reading the json file async
@@ -27,7 +27,7 @@ const jsonToCsv = async (stringDataFile) => {
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
         const jsonData = JSON.parse(data);
-        const csv = await converter.jsonToCsv(jsonData);
+        const csv = await stringFormatConverter.jsonToCsv(jsonData);
 
         console.log(csv);
     }catch(err){
@@ -42,7 +42,7 @@ const csvToJson = async (stringDataFile) => {
         const stringDataPath = path.join(currentDir, '..', 'stringData', stringDataFile);
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
-        const json = await converter.csvToJson(data);
+        const json = await stringFormatConverter.csvToJson(data);
 
         console.log(json);
     }catch(err){
@@ -58,7 +58,7 @@ const jsonToXml = async (stringDataFile) =>{
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
         const jsonData = JSON.parse(data);
-        const xml = converter.jsonToXml(jsonData);
+        const xml = stringFormatConverter.jsonToXml(jsonData);
 
         console.log(xml);
     }catch(err){
@@ -74,7 +74,7 @@ const xmlToJson = async (stringDataFile) =>{
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
         
-        const jsonData = await converter.xmlToJson(data);
+        const jsonData = await stringFormatConverter.xmlToJson(data);
         const jsonString = JSON.stringify(jsonData, null, 2);
         console.log(jsonString);
     }catch(err){

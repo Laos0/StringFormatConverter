@@ -4,6 +4,6 @@ import {jsonToCsv} from './stringFormatConverter/jsonToCsv.js';
 import {xmlToJson} from './stringFormatConverter/xmlToJson.js';
 import {csvToJson} from './stringFormatConverter/csvToJson.js';
 
-const converter = { jsonToXml, jsonToCsv, xmlToJson, csvToJson }
+const stringFormatConverter = { jsonToXml, jsonToCsv, xmlToJson, csvToJson }
 
-export {converter}
+export {stringFormatConverter}
