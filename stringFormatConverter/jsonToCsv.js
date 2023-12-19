@@ -1,5 +1,5 @@
 
-import parse from 'json2csv';
+import json2csv from 'json2csv';
 import * as flat from 'flat';
 /**
  * Convert JSON data to CSV format.
@@ -7,7 +7,7 @@ import * as flat from 'flat';
  * @returns {string} The CSV string generated from the JSON data.
  */
 
-
+// keeping it async just incase changes in libraries flat or json2csv
 const jsonToCsv = async (jsonData) => {
     try{
     
@@ -15,7 +15,7 @@ const jsonToCsv = async (jsonData) => {
         const flatJsonData = flat.flatten(jsonData);
 
         // convert json to csv
-        const csv = parse.parse(flatJsonData);
+        const csv = json2csv.parse(flatJsonData);
         return csv;
 
     }catch(err){
