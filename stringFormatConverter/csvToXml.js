@@ -1,3 +1,6 @@
+import xmlbuilder from 'xmlbuilder';
+import csvParser from 'csv-parser';
+
 /**
  * Builds XML elements for each row of CSV data.
  * @param {Object} rowData - Data representing a single row of CSV.
@@ -19,26 +22,38 @@ const buildXML = (rowData, xmlRoot) => {
  */
 const csvToXml = (csvData) => {
     return new Promise((resolve, reject) => {
-        const xmlRoot = xmlbuilder.create('root'); // Root XML element
+        try {
+            if (typeof csvData !== 'string') {
+                throw new Error('CSV data should be a string.');
+            }
 
-        const csvStream = csvParser(); // Create csv-parser stream
+            if (csvData.length === 0) {
+                throw new Error('CSV data is empty.');
+            }
 
-        csvStream.on('data', (row) => {
-            buildXML(row, xmlRoot); // Convert each row of CSV to XML
-        });
+            const xmlRoot = xmlbuilder.create('root'); // Root XML element
 
-        csvStream.on('end', () => {
-            const xmlString = xmlRoot.end({ pretty: true }); // Get XML string
-            resolve(xmlString); // Resolve with XML string
-        });
+            const csvStream = csvParser(); // Create csv-parser stream
 
-        csvStream.on('error', (err) => {
-            reject(err); // Reject with error if any
-        });
+            csvStream.on('data', (row) => {
+                buildXML(row, xmlRoot); // Convert each row of CSV to XML
+            });
 
-        // Write CSV data into the stream
-        csvStream.write(csvData);
-        csvStream.end();
+            csvStream.on('end', () => {
+                const xmlString = xmlRoot.end({ pretty: true }); // Get XML string
+                resolve(xmlString); // Resolve with XML string
+            });
+
+            csvStream.on('error', (err) => {
+                reject(err); // Reject with error if any
+            });
+
+            // Write CSV data into the stream
+            csvStream.write(csvData);
+            csvStream.end();
+        } catch (err) {
+            reject(err); // Reject with error
+        }
     });
 };
 

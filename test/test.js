@@ -89,12 +89,28 @@ const csvToXml = async (stringDataFile) =>{
         const stringDataPath = path.join(currentDir, '..', 'stringData', stringDataFile);
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
-        
-        // TODO: implement line below
+ 
         const xml = await stringFormatConverter.csvToXml(data);
       
 
         console.log(xml);
+    }catch(err){
+        console.error('Error reading the file:', err);
+    }
+};
+
+const xmlToCsv = async (stringDataFile) =>{
+    try{
+        const currentFilePath = new URL(import.meta.url).pathname;
+        const currentDir = path.dirname(currentFilePath);
+        const stringDataPath = path.join(currentDir, '..', 'stringData', stringDataFile);
+
+        const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
+ 
+        const csv = await stringFormatConverter.xmlToCsv(data);
+      
+
+        console.log(csv);
     }catch(err){
         console.error('Error reading the file:', err);
     }
@@ -109,4 +125,5 @@ const csvToXml = async (stringDataFile) =>{
 // csvToJson('csvTestData.csv');
 // jsonToXml('jsonTestData.json');
 // xmlToJson('xmlTestData.xml');
-csvToXml('csvTestData.csv');
+ csvToXml('csvTestData.csv');
+// xmlToCsv('xmlTestData.xml');

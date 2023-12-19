@@ -38,9 +38,14 @@ const buildXML = (jsonObj, parent) => {
  * @returns {string} - The XML string representation of the JSON object.
  */
 const jsonToXml = (jsonObject) => {
-    const root = xmlbuilder.create('root');
-    buildXML(jsonObject, root);
-    return root.end({ pretty: true });
+    try{
+
+        const root = xmlbuilder.create('root');
+        buildXML(jsonObject, root);
+        return root.end({ pretty: true });
+    }catch(err){
+        console.error("Failed to convert json to xml:", err);
+    }
 };
 
 export { jsonToXml };
