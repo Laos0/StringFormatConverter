@@ -3,6 +3,7 @@ import path from 'path';
 import { jtc } from '../stringFormatConverter/jsonToCsv.js';
 import { ctj } from '../stringFormatConverter/csvToJson.js';
 import { jtx } from '../stringFormatConverter/jsonToXml.js';
+import { xtj } from '../stringFormatConverter/xmlToJson.js';
 
 
 // reading the json file async
@@ -76,9 +77,9 @@ const xmlToJson = async (stringDataFile) =>{
 
         const data = await readFile(stringDataPath, 'utf8'); // json,xlm, csv, txt, custom string format
         
-        const jsonData = xtj(data);
-
-        console.log(jsonData);
+        const jsonData = await xtj(data);
+        const jsonString = JSON.stringify(jsonData, null, 2);
+        console.log(jsonString);
     }catch(err){
         console.error('Error reading the file:', err);
     }
